@@ -1,3 +1,44 @@
 <resources>
     <string name="app_name">TranslationAgency</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_txt">Здравствуйте,</string>
+    <string name="title_txt">**Название**</string>
+    <string name="content_desc_txt">TODO</string>
+    <string name="login_txt">Логин</string>
+    <string name="password_txt">Пароль</string>
+    <string name="arrow_button" />
+    <string name="hello_home_txt">Здравствуйте, Павел</string>
+    <string name="new_order_txt">Новый\nЗаказ</string>
+    <string name="new_client_txt">Новый\nКлиент</string>
+    <string name="new_task_txt">Новая\nЗадача</string>
+    <string name="new_report_txt">Создать\nОтчет</string>
+    <string name="search_txt">Поиск</string>
+    <string name="fast_search_txt">Быстрый Поиск</string>
+    <string name="orders_txt">Заказы</string>
+    <string name="name_item_order_txt">Иванова Т.</string>
+    <string name="item_order_price_txt">•рус/англ  •15 000 ₽</string>
+    <string name="item_order_new_txt">Новый заказ</string>
+    <string name="item_number_order_txt">№ Заказа:#12345</string>
+    <string name="item_status_txt">в процессе</string>
+    <string name="item_second_date_txt">20.03.2025</string>
+    <string name="hz_txt">до</string>
+    <string name="item_first_date_txt">12.03.2025</string>
+    <string name="important_message_txt">Важные Сообщения</string>
+    <string name="item_msg_txt">Лиза В.</string>
+    <string name="item_desc_txt">Лиза В. приняла заказ..</string>
+    <string name="item_msg_time_txt">30мин</string>
+    <string name="bottom_main_txt">Главная</string>
+    <string name="bottom_nav_orders_txt">Заказы</string>
+    <string name="bottom_nav_client_txt">Клиенты</string>
+    <string name="bottom_Nav_tasks_txt">Задачи</string>
+    <string name="bottom_nav_settings_txt">Настройки</string>
+    <string name="search_orders_txt">Поиск по заказам</string>
+    <string name="filter_txt">Фильтры:</string>
+    <string name="filter_all_txt">Все</string>
+    <string name="filter_new_txt">Новые</string>
+    <string name="filter_wait_txt">В ожидании</string>
+    <string name="filter_more_txt">Еще...</string>
+    <string name="search_client_txt">Поиск по клиентам</string>
+    <string name="client_txt">Клиенты</string>
 </resources>

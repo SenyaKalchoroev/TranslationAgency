@@ -1,11 +1,12 @@
 [versions]
 agp = "8.9.1"
-kotlin = "2.0.21"
-coreKtx = "1.15.0"
+kotlin = "2.0.0"
+coreKtx = "1.16.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 appcompat = "1.7.0"
+bottom-version = "1.4.0"
 material = "1.12.0"
 activity = "1.10.1"
 constraintlayout = "2.2.1"
@@ -13,13 +14,13 @@ hiltVersion = "2.51.1"
 navComponent = "2.8.9"
 retrofit = "2.11.0"
 ksp = "2.0.0-1.0.22"
-coroutines = "1.7.3"
+coroutines = "1.8.1"
 glide = "4.16.0"
 lifecycleViewModel = "2.8.7"
-splashScreen = "1.0.1"
 okhttp = "4.12.0"
 navArgs = "2.8.9"
-swiperefreshlayout = "1.2.0"
+firebaseBom = "33.12.0"
+googleServices = "4.4.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -27,6 +28,7 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+bottom-nav = { group = "com.github.ismaeldivita",name="chip-navigation-bar", version.ref = "bottom-version" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
@@ -49,6 +51,20 @@ androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifec
 #Okhhtp
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+#FireBase
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
+# Аутентификация
+firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx" }
+# Firestore
+firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx"}
+firebase-storage-ktx = { group = "com.google.firebase", name = "firebase-storage-ktx" }
+# Realtime Database
+firebase-database-ktx = { group = "com.google.firebase", name = "firebase-database-ktx" }
+# Firebase Cloud Messaging
+firebase-messaging-ktx = { group = "com.google.firebase", name = "firebase-messaging-ktx" }
+# Аналитика
+firebase-analytics-ktx = { group = "com.google.firebase", name = "firebase-analytics-ktx"}
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -56,3 +72,4 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 hiltCompiler = { id = "com.google.dagger.hilt.android", version.ref = "hiltVersion" }
 androidx-navigation-safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navArgs" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }

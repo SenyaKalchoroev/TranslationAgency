@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.hiltCompiler)
     alias(libs.plugins.androidx.navigation.safeargs.kotlin)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.google.services)
 }
 
 android {
@@ -85,4 +86,17 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.okhttp.logging.interceptor)
 
+    //FireBaseBom
+    implementation(platform(libs.firebase.bom))
+    //Firebase
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.firestore.ktx)
+    implementation(libs.firebase.database.ktx)
+    implementation(libs.firebase.messaging.ktx)
+    implementation(libs.firebase.analytics.ktx)
+    implementation(libs.firebase.storage.ktx)
+
+
+    // ChipNavigationBar
+    implementation ("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
 }

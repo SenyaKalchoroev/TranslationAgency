@@ -1,0 +1,55 @@
+package com.kwork.translationagency.presentation.ui.fragments.orders
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.kwork.translationagency.R
+import com.kwork.translationagency.databinding.FragmentLoginBinding
+import com.kwork.translationagency.databinding.FragmentOrdersBinding
+import com.kwork.translationagency.domain.model.OrderModel
+import com.kwork.translationagency.presentation.ui.fragments.home.adapters.OrdersAdapter
+import com.kwork.translationagency.presentation.ui.fragments.orders.adapter.OrdersFragmentAdapter
+
+class OrdersFragment : Fragment() {
+    private  val sampleOrders = listOf(
+        OrderModel(
+            id = 1,
+            userName = "Иванова Т.",
+            description = "Пер. с/на: EN - 15 000 р.",
+            price = "15 000 р.",
+            dateFrom = "12.03.2023",
+            dateTo = "20.03.2023"
+        ),
+        OrderModel(
+            id = 2,
+            userName = "Иванова Т.",
+            description = "Пер. с/на: FR - 10 000 р.",
+            price = "10 000 р.",
+            dateFrom = "13.03.2023",
+            dateTo = "21.03.2023"
+        )
+    )
+    private val binding by lazy {
+        FragmentOrdersBinding.inflate(layoutInflater)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        // Inflate the layout for this fragment
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val ordersAdapter = OrdersFragmentAdapter(sampleOrders)
+        binding.rvOrders.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvOrders.adapter = ordersAdapter
+    }
+
+}

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "602434616038",
+    "project_id": "translationagency-fe14e",
+    "storage_bucket": "translationagency-fe14e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:602434616038:android:de0e8f55e94225990d1927",
+        "android_client_info": {
+          "package_name": "com.kwork.translationagency"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAav_CpMDfG2pog93V0ZgKd3r7uEJ3ujso"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
