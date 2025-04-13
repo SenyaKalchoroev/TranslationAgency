@@ -4,33 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.fragments.orders.OrdersFragment">
+    tools:context=".presentation.ui.fragments.calendar.CalendarFragment">
+
+    <ImageButton
+        android:id="@+id/back_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@id/calendar_tv"
+        android:layout_alignBottom="@id/calendar_tv"
+        android:layout_marginStart="16dp"
+        android:layout_toStartOf="@id/calendar_tv"
+        android:background="@drawable/bg_changes_order"
+        android:padding="12dp"
+        android:src="@drawable/ic_back_arrow" />
 
     <TextView
-        android:id="@+id/orders_tv"
+        android:id="@+id/calendar_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_toStartOf="@id/btn_calendar"
         android:fontFamily="@font/poppins_bold"
-        android:text="@string/orders_txt"
+        android:text="Календарь"
         android:textColor="@color/blue"
-        android:textSize="30sp" />
+        android:textSize="24sp" />
 
     <ImageButton
         android:id="@+id/btn_calendar"
         android:layout_width="40dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="6dp"
+        android:layout_alignTop="@id/new_order_btn"
+        android:layout_alignBottom="@id/new_order_btn"
+        android:layout_marginEnd="8dp"
+        android:layout_toStartOf="@id/new_order_btn"
         android:background="@drawable/bg_cards_home"
         android:elevation="1dp"
-        android:padding="10dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_calendar" />
+        android:src="@drawable/ic_notification_colored" />
 
 
     <com.google.android.material.button.MaterialButton
@@ -38,9 +50,9 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="12dp"
-        android:layout_toStartOf="@id/btn_calendar"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/bg_btn_square"
         android:drawableLeft="@drawable/ic_new_order"
         android:paddingHorizontal="10dp"
@@ -109,160 +121,126 @@
             android:id="@+id/filter_all"
             android:layout_width="38dp"
             android:layout_height="30dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="18dp"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:paddingHorizontal="1dp"
+            android:paddingVertical="1dp"
             android:text="@string/filter_all_txt"
             android:textSize="10sp"
-            android:fontFamily="@font/poppins_bold"
-            android:layout_marginStart="4dp"
-            android:paddingVertical="1dp"
-            android:paddingHorizontal="1dp"
-            android:gravity="center"
             app:backgroundTint="@color/purple"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/tv_filter"
-            app:layout_constraintTop_toBottomOf="@id/search_view"/>
+            app:layout_constraintTop_toBottomOf="@id/search_view" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/filter_new"
             android:layout_width="38dp"
             android:layout_height="30dp"
+            android:layout_marginStart="6dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="18dp"
-            android:text="@string/filter_new_txt"
-            android:textSize="10sp"
             android:backgroundTint="@color/white"
-            app:strokeColor="#63999999"
-            app:strokeWidth="0.5dp"
-            android:textColor="@color/grey"
             android:fontFamily="@font/poppins_bold"
-            android:layout_marginStart="6dp"
-            android:paddingVertical="1dp"
-            android:paddingHorizontal="1dp"
             android:gravity="center"
+            android:paddingHorizontal="1dp"
+            android:paddingVertical="1dp"
+            android:text="@string/filter_new_txt"
+            android:textColor="@color/grey"
+            android:textSize="10sp"
             app:cornerRadius="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/filter_all"
-            app:layout_constraintTop_toBottomOf="@id/search_view"/>
+            app:layout_constraintTop_toBottomOf="@id/search_view"
+            app:strokeColor="#63999999"
+            app:strokeWidth="0.5dp" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/filter_wait"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
+            android:layout_marginStart="6dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="18dp"
-            android:text="@string/filter_wait_txt"
-            android:textSize="10sp"
             android:backgroundTint="@color/white"
-            app:strokeColor="#63999999"
-            app:strokeWidth="0.5dp"
-            android:textColor="@color/grey"
             android:fontFamily="@font/poppins_bold"
-            android:layout_marginStart="6dp"
+            android:gravity="center"
             android:paddingHorizontal="1dp"
             android:paddingVertical="1dp"
-            android:gravity="center"
+            android:text="@string/filter_wait_txt"
+            android:textColor="@color/grey"
+            android:textSize="10sp"
             app:cornerRadius="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/filter_new"
-            app:layout_constraintTop_toBottomOf="@id/search_view"/>
+            app:layout_constraintTop_toBottomOf="@id/search_view"
+            app:strokeColor="#63999999"
+            app:strokeWidth="0.5dp" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/filter_more"
             android:layout_width="44dp"
             android:layout_height="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="18dp"
-            android:text="@string/filter_more_txt"
-            android:textSize="10sp"
             android:backgroundTint="@color/white"
-            app:strokeColor="#63999999"
-            app:strokeWidth="0.5dp"
-            android:paddingHorizontal="1dp"
-            android:textColor="@color/purple"
             android:fontFamily="@font/poppins_bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:paddingVertical="1dp"
             android:gravity="center"
+            android:paddingHorizontal="1dp"
+            android:paddingVertical="1dp"
+            android:text="@string/filter_more_txt"
+            android:textColor="@color/purple"
+            android:textSize="10sp"
             app:cornerRadius="30dp"
-            app:layout_constraintStart_toEndOf="@id/filter_wait"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/filter_wait"
             app:layout_constraintTop_toBottomOf="@id/search_view"
-            />
+            app:strokeColor="#63999999"
+            app:strokeWidth="0.5dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/tv_client"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Клиент:"
-        android:textSize="10sp"
-        android:fontFamily="@font/poppins_bold"
-        android:layout_below="@id/layout_search"
-        android:textColor="@color/grey"
-        android:layout_alignStart="@id/layout_search"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"/>
-    <TextView
-        android:id="@+id/tv_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="№ Заказа:"
-        android:textSize="10sp"
-        android:fontFamily="@font/poppins_bold"
-        android:layout_below="@id/layout_search"
-        android:textColor="@color/grey"
-        android:layout_toEndOf="@id/tv_client"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="10dp"/>
-    <TextView
-        android:id="@+id/tv_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Дата Создания:"
-        android:textSize="10sp"
-        android:fontFamily="@font/poppins_bold"
-        android:layout_below="@id/layout_search"
-        android:textColor="@color/grey"
-        android:layout_toEndOf="@id/tv_number"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="10dp"/>
-    <TextView
-        android:id="@+id/tv_term"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Срок:"
-        android:textSize="10sp"
-        android:fontFamily="@font/poppins_bold"
-        android:layout_below="@id/layout_search"
-        android:textColor="@color/grey"
-        android:layout_toEndOf="@id/tv_date"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="10dp"/>
-    <TextView
-        android:id="@+id/tv_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Статус:"
-        android:textSize="10sp"
-        android:fontFamily="@font/poppins_bold"
-        android:layout_below="@id/layout_search"
-        android:textColor="@color/grey"
-        android:layout_toEndOf="@id/tv_term"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="10dp"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_orders"
+
+    <CalendarView
+        android:id="@+id/calendar_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_below="@id/tv_client"
-        android:layout_marginTop="8dp"
-        android:layout_alignBottom="@id/tv_client"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_search"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_cards_home"
+        android:dateTextAppearance="@style/CalendarDateTextAppearance"
+        android:elevation="1dp"
+        android:focusedMonthDateColor="@color/blue"
+        android:selectedDateVerticalBar="@color/purple"
+        android:showWeekNumber="false"
+        android:unfocusedMonthDateColor="@color/grey"
+        android:weekDayTextAppearance="@style/CalendarWeekDayTextAppearance" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_orders"
         android:layout_alignParentBottom="true"
-        tools:listitem="@layout/item_orders"/>
+        android:layout_marginHorizontal="16dp"
+        tools:listitem="@layout/item_orders" />
 
-
-
+    <TextView
+        android:id="@+id/tv_orders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/calendar_view"
+        android:layout_alignStart="@id/calendar_view"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Заказаны 12 марта:"
+        android:textColor="@color/grey"
+        android:textSize="10sp" />
 
 
 </RelativeLayout>

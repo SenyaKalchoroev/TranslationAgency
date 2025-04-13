@@ -28,15 +28,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setupNavController()
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
-        binding.chipNavBar.setItemSelected(R.id.homeFragment,true)
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.main_host, HomeFragment())
-            .commit()
-        bottomMenu()
+        setupBottomNavigation()
     }
 
     private fun setupNavController() {
@@ -45,19 +37,18 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
     }
 
-    private fun bottomMenu() {
+    private fun setupBottomNavigation() {
+        binding.chipNavBar.setItemSelected(R.id.homeFragment, true)
+
         binding.chipNavBar.setOnItemSelectedListener { itemId ->
-            val fragment: Fragment = when (itemId) {
-                R.id.homeFragment -> HomeFragment()
-                R.id.ordersFragment -> OrdersFragment()
-                R.id.clientsFragment -> ClientsFragment()
-                R.id.taskFragment -> TaskFragment()
-                R.id.settingsFragment -> SettingsFragment()
-                else -> HomeFragment()
+            when (itemId) {
+                R.id.homeFragment -> navController.navigate(R.id.homeFragment)
+                R.id.ordersFragment -> navController.navigate(R.id.ordersFragment)
+                R.id.clientsFragment -> navController.navigate(R.id.clientsFragment)
+                R.id.taskFragment -> navController.navigate(R.id.taskFragment)
+                R.id.settingsFragment -> navController.navigate(R.id.settingsFragment)
             }
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.main_host, fragment)
-                .commit()
         }
     }
 }
+

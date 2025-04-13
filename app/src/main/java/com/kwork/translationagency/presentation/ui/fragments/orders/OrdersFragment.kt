@@ -1,20 +1,25 @@
 package com.kwork.translationagency.presentation.ui.fragments.orders
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.kwork.translationagency.R
-import com.kwork.translationagency.databinding.FragmentLoginBinding
+import com.kwork.translationagency.databinding.BottomSheetSearchBinding
 import com.kwork.translationagency.databinding.FragmentOrdersBinding
 import com.kwork.translationagency.domain.model.OrderModel
-import com.kwork.translationagency.presentation.ui.fragments.home.adapters.OrdersAdapter
 import com.kwork.translationagency.presentation.ui.fragments.orders.adapter.OrdersFragmentAdapter
 
 class OrdersFragment : Fragment() {
-    private  val sampleOrders = listOf(
+
+    private var _binding: FragmentOrdersBinding? = null
+    private val binding get() = _binding!!
+
+    private val sampleOrders = listOf(
         OrderModel(
             id = 1,
             userName = "Иванова Т.",
@@ -32,24 +37,33 @@ class OrdersFragment : Fragment() {
             dateTo = "21.03.2023"
         )
     )
-    private val binding by lazy {
-        FragmentOrdersBinding.inflate(layoutInflater)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
+        _binding = FragmentOrdersBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.btnCalendar.setOnClickListener {
+            findNavController().navigate(R.id.action_ordersFragment_to_calendarFragment)
+        }
+        binding.newOrderBtn.setOnClickListener{
+            findNavController().navigate(R.id.action_ordersFragment_to_newOrderFragment)
+        }
         val ordersAdapter = OrdersFragmentAdapter(sampleOrders)
         binding.rvOrders.layoutManager = LinearLayoutManager(requireContext())
         binding.rvOrders.adapter = ordersAdapter
+
+
     }
 
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
