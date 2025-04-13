@@ -2,16 +2,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@+id/homeFragment">
+    app:startDestination="@+id/loginFragment">
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.kwork.translationagency.presentation.ui.fragments.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
+
         <action
             android:id="@+id/action_loginFragment_to_homeScreen"
             app:destination="@id/homeFragment" />
+
     </fragment>
 
     <fragment
@@ -25,12 +27,15 @@
         android:name="com.kwork.translationagency.presentation.ui.fragments.orders.OrdersFragment"
         android:label="fragment_orders"
         tools:layout="@layout/fragment_orders">
+
         <action
             android:id="@+id/action_ordersFragment_to_calendarFragment"
             app:destination="@id/calendarFragment" />
+
         <action
             android:id="@+id/action_ordersFragment_to_newOrderFragment"
             app:destination="@id/newOrderFragment" />
+
     </fragment>
 
     <fragment

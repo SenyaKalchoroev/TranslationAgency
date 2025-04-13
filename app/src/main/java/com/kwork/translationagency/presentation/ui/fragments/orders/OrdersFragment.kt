@@ -57,13 +57,11 @@ class OrdersFragment : Fragment() {
         val ordersAdapter = OrdersFragmentAdapter(sampleOrders)
         binding.rvOrders.layoutManager = LinearLayoutManager(requireContext())
         binding.rvOrders.adapter = ordersAdapter
-
-
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }

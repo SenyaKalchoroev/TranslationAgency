@@ -37,4 +37,5 @@ class OrdersFragmentAdapter(
             binding.itemSecondDate.text = order.dateTo
         }
     }
+
 }

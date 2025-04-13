@@ -1,34 +1,32 @@
 package com.kwork.translationagency.presentation.ui.activity
 
 import android.os.Bundle
-import android.view.WindowManager
-import androidx.activity.enableEdgeToEdge
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.kwork.translationagency.R
 import com.kwork.translationagency.databinding.ActivityMainBinding
-import com.ismaeldivita.chipnavigation.ChipNavigationBar
-import com.kwork.translationagency.presentation.ui.fragments.clients.ClientsFragment
-import com.kwork.translationagency.presentation.ui.fragments.home.HomeFragment
-import com.kwork.translationagency.presentation.ui.fragments.orders.OrdersFragment
-import com.kwork.translationagency.presentation.ui.fragments.settings.SettingsFragment
-import com.kwork.translationagency.presentation.ui.fragments.tasks.TaskFragment
 
 class MainActivity : AppCompatActivity() {
 
-    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+
     private lateinit var navController: NavController
 
+    private val hideBottomNavDestinations = setOf(
+        R.id.loginFragment,
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
         setupNavController()
         setupBottomNavigation()
+        setupDestinationListener()
     }
 
     private fun setupNavController() {
@@ -50,5 +48,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-}
 
+    private fun setupDestinationListener() {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id in hideBottomNavDestinations) {
+                binding.chipNavBar.visibility = View.GONE
+            } else {
+                binding.chipNavBar.visibility = View.VISIBLE
+            }
+        }
+    }
+
+}

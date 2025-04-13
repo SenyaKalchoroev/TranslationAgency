@@ -12,7 +12,6 @@ import com.kwork.translationagency.domain.model.OrderModel
 import com.kwork.translationagency.presentation.ui.fragments.home.adapters.MessagesAdapter
 import com.kwork.translationagency.presentation.ui.fragments.home.adapters.OrdersAdapter
 
-
 class HomeFragment : Fragment() {
 
     private val binding by lazy {
@@ -78,4 +77,5 @@ class HomeFragment : Fragment() {
         binding.rvMessages.layoutManager = LinearLayoutManager(requireContext())
         binding.rvMessages.adapter = messagesAdapter
     }
+
 }
