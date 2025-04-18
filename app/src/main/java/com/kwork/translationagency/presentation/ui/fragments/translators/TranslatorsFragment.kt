@@ -1,21 +1,21 @@
-package com.kwork.translationagency.presentation.ui.fragments.clients
+package com.kwork.translationagency.presentation.ui.fragments.translators
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.kwork.translationagency.R
 import com.kwork.translationagency.databinding.FragmentClientsBinding
+import com.kwork.translationagency.databinding.FragmentTranslatorsBinding
 import com.kwork.translationagency.domain.model.ClientModel
 import com.kwork.translationagency.presentation.ui.fragments.clients.adapter.ClientsAdapter
-import com.kwork.translationagency.presentation.ui.fragments.search.SearchDialogFragment
 
-class ClientsFragment : Fragment() {
+class TranslatorsFragment : Fragment() {
 
-    private var _binding: FragmentClientsBinding? = null
+
+    private var _binding: FragmentTranslatorsBinding    ? = null
     private val binding get() = _binding!!
 
     private val localClients = listOf(
@@ -58,27 +58,23 @@ class ClientsFragment : Fragment() {
 
     )
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentClientsBinding.inflate(inflater, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentTranslatorsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.rvOrders.layoutManager = GridLayoutManager(context, 3)
         binding.rvOrders.adapter = ClientsAdapter(localClients)
-        binding.btnCalendar.setOnClickListener {
-            findNavController().navigate(R.id.action_clientsFragment_to_translatorsFragment)
-        }
-        binding.searchView.setOnClickListener {
-            val dialog = SearchDialogFragment()
-            dialog.show(parentFragmentManager, "SearchDialog")
-        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }

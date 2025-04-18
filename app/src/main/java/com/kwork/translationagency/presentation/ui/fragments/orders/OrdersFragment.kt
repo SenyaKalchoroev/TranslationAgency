@@ -13,6 +13,7 @@ import com.kwork.translationagency.databinding.BottomSheetSearchBinding
 import com.kwork.translationagency.databinding.FragmentOrdersBinding
 import com.kwork.translationagency.domain.model.OrderModel
 import com.kwork.translationagency.presentation.ui.fragments.orders.adapter.OrdersFragmentAdapter
+import com.kwork.translationagency.presentation.ui.fragments.search.SearchDialogFragment
 
 class OrdersFragment : Fragment() {
 
@@ -57,6 +58,11 @@ class OrdersFragment : Fragment() {
         val ordersAdapter = OrdersFragmentAdapter(sampleOrders)
         binding.rvOrders.layoutManager = LinearLayoutManager(requireContext())
         binding.rvOrders.adapter = ordersAdapter
+        binding.searchView.setOnClickListener {
+            val dialog = SearchDialogFragment()
+            dialog.show(parentFragmentManager, "SearchDialog")
+        }
+
     }
 
     override fun onDestroyView() {

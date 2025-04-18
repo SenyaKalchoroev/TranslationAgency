@@ -12,4 +12,15 @@
         <item name="android:fontFamily">@font/poppins_bold</item>
     </style>
 
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppBottomSheet</item>
+    </style>
+
+    <style name="AppBottomSheet" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+
+
+
 </resources>

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.kwork.translationagency.R
 import com.kwork.translationagency.databinding.FragmentTaskBinding
 import com.kwork.translationagency.domain.model.TaskModel
+import com.kwork.translationagency.presentation.ui.fragments.search.SearchDialogFragment
 import com.kwork.translationagency.presentation.ui.fragments.tasks.adapter.TaskAdapter
 
 class TaskFragment : Fragment() {
@@ -54,6 +55,11 @@ class TaskFragment : Fragment() {
 
         binding.rvTask.layoutManager = LinearLayoutManager(requireContext())
         binding.rvTask.adapter = adapter
+        binding.searchView.setOnClickListener {
+            val dialog = SearchDialogFragment()
+            dialog.show(parentFragmentManager, "SearchDialog")
+        }
+
     }
 
     override fun onDestroyView() {

@@ -21,6 +21,7 @@ okhttp = "4.12.0"
 navArgs = "2.8.9"
 firebaseBom = "33.12.0"
 googleServices = "4.4.2"
+uiAndroid = "1.7.8"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -32,9 +33,6 @@ bottom-nav = { group = "com.github.ismaeldivita",name="chip-navigation-bar", ver
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
-#di
-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltVersion" }
-hilt-android-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltVersion" }
 #NavComponents
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navComponent" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navComponent" }
@@ -64,6 +62,7 @@ firebase-database-ktx = { group = "com.google.firebase", name = "firebase-databa
 firebase-messaging-ktx = { group = "com.google.firebase", name = "firebase-messaging-ktx" }
 # Аналитика
 firebase-analytics-ktx = { group = "com.google.firebase", name = "firebase-analytics-ktx"}
+androidx-ui-android = { group = "androidx.compose.ui", name = "ui-android", version.ref = "uiAndroid" }
 
 
 [plugins]

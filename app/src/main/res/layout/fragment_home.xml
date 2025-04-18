@@ -32,6 +32,7 @@
         android:textSize="18sp" />
 
     <ImageButton
+        android:id="@+id/notif_btn"
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/user_image"
@@ -214,6 +215,9 @@
             android:fontFamily="@font/poppins_bold"
             android:hint="@string/fast_search_txt"
             android:paddingStart="10dp"
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:inputType="none"
             android:pointerIcon="alias"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"

@@ -8,16 +8,13 @@
 
     <ImageButton
         android:id="@+id/back_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/calendar_tv"
-        android:layout_alignBottom="@id/calendar_tv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentStart="true"
-        android:layout_marginHorizontal="24dp"
-        android:layout_toStartOf="@id/calendar_tv"
-        android:background="@drawable/bg_changes_order"
-        android:padding="16dp"
-        android:scaleType="centerCrop"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/bg_for_back_button"
         android:src="@drawable/ic_back_arrow" />
 
     <TextView

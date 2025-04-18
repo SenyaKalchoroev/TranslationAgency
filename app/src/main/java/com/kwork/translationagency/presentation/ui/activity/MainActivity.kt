@@ -17,6 +17,11 @@ class MainActivity : AppCompatActivity() {
 
     private val hideBottomNavDestinations = setOf(
         R.id.loginFragment,
+        R.id.newOrderFragment,
+        R.id.notificationFragment,
+        R.id.translatorsFragment,
+        R.id.chatFragment,
+        R.id.profileFragment,
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

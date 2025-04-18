@@ -5,12 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.kwork.translationagency.R
 import com.kwork.translationagency.databinding.FragmentHomeBinding
 import com.kwork.translationagency.domain.model.MessageModel
 import com.kwork.translationagency.domain.model.OrderModel
 import com.kwork.translationagency.presentation.ui.fragments.home.adapters.MessagesAdapter
 import com.kwork.translationagency.presentation.ui.fragments.home.adapters.OrdersAdapter
+import com.kwork.translationagency.presentation.ui.fragments.search.SearchDialogFragment
 
 class HomeFragment : Fragment() {
 
@@ -76,6 +79,21 @@ class HomeFragment : Fragment() {
 
         binding.rvMessages.layoutManager = LinearLayoutManager(requireContext())
         binding.rvMessages.adapter = messagesAdapter
+        binding.userImage.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
+        }
+        binding.newOrderCard.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_newOrderFragment)
+        }
+        binding.notifBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_notificationFragment)
+        }
+        binding.searchView.setOnClickListener {
+            val dialog = SearchDialogFragment()
+            dialog.show(parentFragmentManager, "SearchDialog")
+        }
+
+
     }
 
 }
