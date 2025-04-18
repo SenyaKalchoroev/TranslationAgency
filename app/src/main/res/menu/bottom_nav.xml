@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/homeFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_home"
+        android:title="@string/bottom_main_txt"
+        app:cnb_backgroundColor="@color/blue"
+        app:cnb_iconColor="@color/white"
+        app:cnb_textColor="@color/white" />
+    <item
+        android:id="@+id/ordersFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_orders"
+        android:title="@string/bottom_nav_orders_txt"
+        app:cnb_backgroundColor="@color/blue"
+        app:cnb_iconColor="@color/white"
+        app:cnb_textColor="@color/white" />
+    <item
+        android:id="@+id/clientsFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_clients"
+        android:title="@string/bottom_nav_client_txt"
+        app:cnb_backgroundColor="@color/blue"
+        app:cnb_iconColor="@color/white"
+        app:cnb_textColor="@color/white" />
+    <item
+        android:id="@+id/taskFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_tasks"
+        android:title="@string/bottom_Nav_tasks_txt"
+        app:cnb_backgroundColor="@color/blue"
+        app:cnb_iconColor="@color/white"
+        app:cnb_textColor="@color/white" />
+    <item
+        android:id="@+id/settingsFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/bottom_nav_settings_txt"
+        app:cnb_backgroundColor="@color/blue"
+        app:cnb_iconColor="@color/white"
+        app:cnb_textColor="@color/white" />
+</menu>

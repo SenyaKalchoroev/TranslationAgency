@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/blue"
+    tools:context=".presentation.ui.fragments.profile.ProfileFragment">
+
+    <ImageButton
+        android:elevation="1dp"
+        android:id="@+id/back_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/bg_for_back_button"
+        android:padding="12dp"
+        android:src="@drawable/ic_back_arrow" />
+
+    <ImageView
+        android:elevation="1dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/profile_image"
+        android:layout_marginHorizontal="118dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignTop="@id/layout_profile"
+        android:layout_alignParentTop="true"
+        android:foregroundGravity="center"
+        android:src="@drawable/img_profile_human"/>
+    <TextView
+        android:elevation="1dp"
+        android:id="@+id/item_status_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_search_button"
+        android:backgroundTint="#63D0FF"
+        android:textAlignment="center"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_alignEnd="@id/profile_image"
+        android:layout_alignStart="@id/profile_image"
+        android:layout_marginHorizontal="45dp"
+        android:paddingVertical="2dp"
+        android:layout_alignBottom="@id/profile_image"
+        android:text="В сети"
+        android:textColor="@color/white"
+        android:textSize="8sp"
+        tools:ignore="SmallSp" />
+
+    <RelativeLayout
+        android:id="@+id/layout_profile"
+        android:layout_below="@id/back_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_board">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="30dp"
+            android:paddingHorizontal="10dp"
+            android:drawableLeft="@drawable/ic_chat"
+            android:background="@drawable/bg_search_button"
+            android:text="Чат"
+            android:textColor="@android:color/white"
+            app:backgroundTint="@color/blue" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_fix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="30dp"
+            android:paddingHorizontal="10dp"
+            android:drawableLeft="@drawable/ic_change_not_colored"
+            android:background="@drawable/bg_search_button"
+            android:text="Изменить"
+            android:textColor="@android:color/white"
+            app:backgroundTint="@color/blue" />
+        <TextView
+            android:id="@+id/user_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Алексанр Семенько"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/blue"
+            android:textSize="30sp"
+            android:layout_below="@id/btn_chat"
+            android:gravity="center_horizontal"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/user_name_tv"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_cards_home"
+            android:elevation="4dp">
+            <TextView
+                android:id="@+id/tv_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Никнейм:"
+                android:textColor="@color/grey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/user_nicname_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/bg_search_button"
+                android:backgroundTint="#F4F4F4"
+                android:fontFamily="@font/poppins_bold"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="2dp"
+                android:text="#aleks"
+                android:textColor="#999999"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_nickname"
+                app:layout_constraintStart_toEndOf="@id/tv_nickname"
+                app:layout_constraintTop_toTopOf="@id/tv_nickname"
+                tools:ignore="SmallSp" />
+
+            <TextView
+                android:id="@+id/tv_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Телефон:"
+                android:textColor="@color/grey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_nickname"
+                />
+            <TextView
+                android:id="@+id/user_number_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/bg_search_button"
+                android:backgroundTint="#F4F4F4"
+                android:fontFamily="@font/poppins_bold"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="2dp"
+                android:text="+7 1234567890"
+                android:textColor="#999999"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_number"
+                app:layout_constraintStart_toEndOf="@id/tv_number"
+                app:layout_constraintTop_toTopOf="@id/tv_number"
+                tools:ignore="SmallSp" />
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Почта"
+                android:textColor="@color/grey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_number"
+                />
+            <TextView
+                android:id="@+id/user_email_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/bg_search_button"
+                android:backgroundTint="#F4F4F4"
+                android:fontFamily="@font/poppins_bold"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="2dp"
+                android:text="aleksendr_semko@mail.ru"
+                android:textColor="#999999"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_email"
+                app:layout_constraintStart_toEndOf="@id/tv_email"
+                app:layout_constraintTop_toTopOf="@id/tv_email"
+                tools:ignore="SmallSp" />
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Заказов / статус:"
+                android:textColor="@color/grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_email"
+                />
+            <TextView
+                android:id="@+id/user_status_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/bg_search_button"
+                android:backgroundTint="#5989DA7E"
+                android:fontFamily="@font/poppins_bold"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="2dp"
+                android:text="           5            "
+                android:textColor="#89DA7E"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_status"
+                app:layout_constraintStart_toEndOf="@id/tv_status"
+                app:layout_constraintTop_toTopOf="@id/tv_status"
+                tools:ignore="SmallSp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_history_orders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_data"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="История заказов"
+            android:textColor="@color/blue"
+            android:textSize="20sp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_orders"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_below="@id/tv_history_orders"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="16dp"
+            tools:listitem="@layout/item_orders" />
+
+        <TextView
+            android:id="@+id/important_msg_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rv_orders"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/important_message_txt"
+            android:textColor="@color/blue"
+            android:textSize="18sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_messages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/important_msg_tv"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="16dp"
+            tools:listitem="@layout/item_messages" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

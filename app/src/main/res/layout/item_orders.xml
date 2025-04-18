@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:layout_margin="4dp"
+    android:background="@drawable/bg_item_orders"
+    android:elevation="4dp">
+
+    <ImageView
+        android:id="@+id/item_user_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/img_human"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_user_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="14dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/name_item_order_txt"
+        android:textColor="@color/blue"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/item_user_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_order_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/item_order_price_txt"
+        android:textColor="@color/grey"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@id/item_user_name_tv"
+        app:layout_constraintTop_toBottomOf="@id/item_user_name_tv"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_search_button"
+        android:fontFamily="@font/poppins_bold"
+        android:gravity="center"
+        android:padding="3dp"
+        android:text="@string/item_order_new_txt"
+        android:textColor="@color/white"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@id/item_user_name_tv"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/item_number_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/bg_search_button"
+        android:backgroundTint="#F4F4F4"
+        android:fontFamily="@font/poppins_bold"
+        android:paddingHorizontal="6dp"
+        android:paddingVertical="2dp"
+        android:text="@string/item_number_order_txt"
+        android:textColor="#999999"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SmallSp" />
+
+    <ImageButton
+        android:id="@+id/item_setting_order"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/bg_changes_order"
+        android:src="@drawable/ic_settings_order"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/item_edit_order"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/bg_changes_order"
+        android:src="@drawable/ic_edit_order"
+        app:layout_constraintEnd_toStartOf="@id/item_setting_order"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/item_delete_order"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/bg_changes_order"
+        android:src="@drawable/ic_delete_order"
+        app:layout_constraintEnd_toStartOf="@id/item_edit_order"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_status_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/bg_search_button"
+        android:backgroundTint="@color/yellow_transparent"
+        android:fontFamily="@font/poppins_bold"
+        android:paddingHorizontal="6dp"
+        android:paddingVertical="2dp"
+        android:text="@string/item_status_txt"
+        android:textColor="@color/yellow"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/item_second_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/bg_search_button"
+        android:backgroundTint="#F4F4F4"
+        android:fontFamily="@font/poppins_bold"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="2dp"
+        android:text="@string/item_second_date_txt"
+        android:textColor="#999999"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/item_status_order"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/item_hz_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginBottom="6dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/hz_txt"
+        android:textColor="@color/grey"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/item_second_date" />
+
+    <TextView
+        android:id="@+id/item_first_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/bg_search_button"
+        android:backgroundTint="#F4F4F4"
+        android:fontFamily="@font/poppins_bold"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="2dp"
+        android:text="@string/item_first_date_txt"
+        android:textColor="#999999"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/item_hz_tv"
+        tools:ignore="SmallSp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

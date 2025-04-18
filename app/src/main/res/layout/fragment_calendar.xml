@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.ui.fragments.calendar.CalendarFragment">
+
+    <ImageButton
+        android:id="@+id/back_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/bg_for_back_button"
+        android:src="@drawable/ic_back_arrow" />
+
+    <TextView
+        android:id="@+id/calendar_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:maxLines="1"
+        android:layout_toEndOf="@id/back_btn"
+        android:layout_marginTop="20dp"
+        android:layout_toStartOf="@id/btn_calendar"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Календарь"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/blue"
+        android:textSize="24sp" />
+
+    <ImageButton
+        android:id="@+id/btn_calendar"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/new_order_btn"
+        android:layout_alignBottom="@id/new_order_btn"
+        android:layout_marginEnd="8dp"
+        android:layout_toStartOf="@id/new_order_btn"
+        android:background="@drawable/bg_cards_home"
+        android:elevation="1dp"
+        android:src="@drawable/ic_notification_colored" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/new_order_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_btn_square"
+        android:drawableLeft="@drawable/ic_new_order"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="1dp"
+        android:text="@string/new_order_txt"
+        android:textColor="@color/blue"
+        android:textSize="11sp"
+        app:backgroundTint="@color/white"
+        app:elevation="4dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_calendar"
+        android:layout_marginHorizontal="18dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_layout_search"
+        android:elevation="2dp">
+
+        <EditText
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_search_et"
+            android:drawableStart="@drawable/ic_search_grey"
+            android:fontFamily="@font/poppins_bold"
+            android:hint="Поиск по задачам "
+            android:paddingStart="10dp"
+            android:pointerIcon="alias"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlSymmetry" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSearchAction"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_search_button"
+            android:text="@string/search_txt"
+            android:textColor="@android:color/white"
+            app:backgroundTint="@color/blue"
+            app:layout_constraintBottom_toBottomOf="@id/search_view"
+            app:layout_constraintEnd_toEndOf="@id/search_view"
+            app:layout_constraintTop_toTopOf="@id/search_view" />
+
+        <TextView
+            android:id="@+id/tv_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="18dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/filter_txt"
+            android:textColor="@color/purple"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search_view" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/filter_all"
+            android:layout_width="38dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="18dp"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:paddingHorizontal="1dp"
+            android:paddingVertical="1dp"
+            android:text="@string/filter_all_txt"
+            android:textSize="10sp"
+            app:backgroundTint="@color/purple"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_filter"
+            app:layout_constraintTop_toBottomOf="@id/search_view" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/filter_new"
+            android:layout_width="38dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="18dp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:paddingHorizontal="1dp"
+            android:paddingVertical="1dp"
+            android:text="@string/filter_new_txt"
+            android:textColor="@color/grey"
+            android:textSize="10sp"
+            app:cornerRadius="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/filter_all"
+            app:layout_constraintTop_toBottomOf="@id/search_view"
+            app:strokeColor="#63999999"
+            app:strokeWidth="0.5dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/filter_wait"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="18dp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:paddingHorizontal="1dp"
+            android:paddingVertical="1dp"
+            android:text="@string/filter_wait_txt"
+            android:textColor="@color/grey"
+            android:textSize="10sp"
+            app:cornerRadius="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/filter_new"
+            app:layout_constraintTop_toBottomOf="@id/search_view"
+            app:strokeColor="#63999999"
+            app:strokeWidth="0.5dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/filter_more"
+            android:layout_width="44dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="18dp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:paddingHorizontal="1dp"
+            android:paddingVertical="1dp"
+            android:text="@string/filter_more_txt"
+            android:textColor="@color/purple"
+            android:textSize="10sp"
+            app:cornerRadius="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/filter_wait"
+            app:layout_constraintTop_toBottomOf="@id/search_view"
+            app:strokeColor="#63999999"
+            app:strokeWidth="0.5dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <CalendarView
+        android:id="@+id/calendar_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_search"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_cards_home"
+        android:dateTextAppearance="@style/CalendarDateTextAppearance"
+        android:elevation="1dp"
+        android:focusedMonthDateColor="@color/blue"
+        android:selectedDateVerticalBar="@color/purple"
+        android:showWeekNumber="false"
+        android:unfocusedMonthDateColor="@color/grey"
+        android:weekDayTextAppearance="@style/CalendarWeekDayTextAppearance" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_orders"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="16dp"
+        tools:listitem="@layout/item_orders" />
+
+    <TextView
+        android:id="@+id/tv_orders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/calendar_view"
+        android:layout_alignStart="@id/calendar_view"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Заказаны 12 марта:"
+        android:textColor="@color/grey"
+        android:textSize="10sp" />
+
+
+</RelativeLayout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/blue"
+    tools:context=".presentation.ui.fragments.ChatFragment">
+    <ImageButton
+        android:elevation="1dp"
+        android:id="@+id/back_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/bg_for_back_button"
+        android:padding="12dp"
+        android:src="@drawable/ic_back_arrow" />
+    <ImageView
+        android:id="@+id/user_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@id/back_btn"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/bg_circle_button"
+        android:scaleType="centerCrop"
+        android:layout_toEndOf="@id/back_btn"
+        tools:src="@drawable/img_human" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/user_image"
+        android:layout_alignBottom="@id/user_image"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@id/user_image"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center"
+        android:text="Александр С."
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+    <ImageButton
+        android:id="@+id/btn_calendar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="6dp"
+        android:backgroundTint="@color/blue"
+        android:background="@drawable/bg_cards_home"
+        android:elevation="8dp"
+        android:padding="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_settings_not_colored" />
+
+    <RelativeLayout
+        android:id="@+id/layout_profile"
+        android:layout_below="@id/back_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/img_background_chat">
+        <EditText
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/bg_search_et"
+            android:drawableStart="@drawable/ic_paperclip"
+            android:fontFamily="@font/poppins_bold"
+            android:hint="Введите сообщение"
+            android:layout_marginBottom="18dp"
+            android:paddingStart="10dp"
+            android:pointerIcon="alias"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlSymmetry" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSearchAction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/search_view"
+            android:layout_alignEnd="@id/search_view"
+            android:layout_alignBottom="@id/search_view"
+            android:background="@drawable/bg_search_button"
+            android:text="Отправить"
+            android:textColor="@android:color/white"
+            app:backgroundTint="@color/blue" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

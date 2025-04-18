@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="54dp"
+    android:layout_marginVertical="4dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_item_orders">
+
+    <ImageView
+        android:id="@+id/item_img_task"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="6dp"
+        android:background="@drawable/bg_circle_button"
+        android:padding="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_new_task_not_colored"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/item_task_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Проверить новые заказы.."
+        android:textSize="12sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/item_img_task"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/blue"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_marginStart="6dp"/>
+    <TextView
+        android:id="@+id/item_second_date"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/bg_search_button"
+        android:backgroundTint="#F4F4F4"
+        android:paddingVertical="2dp"
+        android:fontFamily="@font/poppins_bold"
+        android:paddingHorizontal="8dp"
+        android:layout_marginHorizontal="4dp"
+        android:text="завершено"
+        android:textColor="#999999"
+        app:layout_constraintTop_toBottomOf="@id/item_task_name"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/item_img_task"
+
+        tools:ignore="SmallSp" />
+    <TextView
+        android:id="@+id/item_first_date"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/bg_search_button"
+        android:backgroundTint="#F4F4F4"
+        android:paddingVertical="2dp"
+        android:fontFamily="@font/poppins_bold"
+        android:paddingHorizontal="8dp"
+        android:layout_marginHorizontal="4dp"
+        android:text="Анна П."
+        android:textColor="#999999"
+        app:layout_constraintTop_toBottomOf="@id/item_task_name"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/item_second_date"
+
+        tools:ignore="SmallSp" />
+    <TextView
+        android:id="@+id/item_task_time"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/bg_search_button"
+        android:backgroundTint="#F4F4F4"
+        android:paddingVertical="2dp"
+        android:fontFamily="@font/poppins_bold"
+        android:paddingHorizontal="8dp"
+        android:layout_marginHorizontal="4dp"
+        android:text="вчера"
+        android:textColor="#999999"
+        app:layout_constraintTop_toBottomOf="@id/item_task_name"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="SmallSp" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

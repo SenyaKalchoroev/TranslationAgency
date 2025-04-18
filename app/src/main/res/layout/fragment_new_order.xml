@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.ui.fragments.new_order.NewOrderFragment">
+
+    <ImageButton
+        android:id="@+id/back_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/bg_for_back_button"
+        android:src="@drawable/ic_back_arrow" />
+
+    <TextView
+        android:id="@+id/calendar_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="90dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="+ Создание заказа"
+        android:textColor="@color/blue"
+        android:textSize="24sp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_order_params"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/calendar_tv"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_cards_home"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/tv_client"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Клиент:"
+            android:textColor="@color/grey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/item_delete_order"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/bg_changes_order"
+            android:src="@drawable/ic_add_not_colored"
+            app:layout_constraintBottom_toBottomOf="@id/tv_client"
+            app:layout_constraintStart_toEndOf="@id/tv_client"
+            app:layout_constraintTop_toTopOf="@id/tv_client" />
+
+        <TextView
+            android:id="@+id/tv_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Тип перевода:"
+            android:textColor="@color/grey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_client" />
+
+        <TextView
+            android:id="@+id/item_second_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/bg_search_button"
+            android:backgroundTint="#F4F4F4"
+            android:fontFamily="@font/poppins_bold"
+            android:paddingHorizontal="4dp"
+            android:text="Юридический"
+            android:textColor="#999999"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_type"
+            app:layout_constraintStart_toEndOf="@id/tv_type"
+            app:layout_constraintTop_toTopOf="@id/tv_type"
+            tools:ignore="SmallSp" />
+
+        <TextView
+            android:id="@+id/tv_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Язык перевода:"
+            android:textColor="@color/grey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_type" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/bg_search_button"
+            android:backgroundTint="#F4F4F4"
+            android:paddingHorizontal="4dp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_language"
+            app:layout_constraintStart_toEndOf="@id/tv_language"
+            app:layout_constraintTop_toTopOf="@id/tv_language">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="c"
+                android:textColor="@color/grey"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/spinner_from"
+                android:layout_width="87dp"
+                android:layout_height="20dp"
+                android:background="@drawable/bg_search_et"
+                android:backgroundTint="#D9D9D9" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="до"
+                android:textColor="@color/grey"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/spinner_to"
+                android:layout_width="87dp"
+                android:layout_height="20dp"
+                android:background="@drawable/bg_search_et"
+                android:backgroundTint="#D9D9D9" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_term"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Срок:"
+            android:textColor="@color/grey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_language" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/bg_search_button"
+            android:backgroundTint="#F4F4F4"
+            android:paddingHorizontal="4dp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_term"
+            app:layout_constraintStart_toEndOf="@id/tv_term"
+            app:layout_constraintTop_toTopOf="@id/tv_term">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="от"
+                android:textColor="@color/grey"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/second_spinner_from"
+                android:layout_width="87dp"
+                android:layout_height="20dp"
+                android:background="@drawable/bg_search_et"
+                android:backgroundTint="#D9D9D9" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="до"
+                android:textColor="@color/grey"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/second_spinner_to"
+                android:layout_width="87dp"
+                android:layout_height="20dp"
+                android:background="@drawable/bg_search_et"
+                android:backgroundTint="#D9D9D9" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Стоимость:"
+            android:textColor="@color/grey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_term" />
+
+        <EditText
+            android:id="@+id/search_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_search_et"
+            android:fontFamily="@font/poppins_bold"
+            android:hint="Введите Стоимость.."
+            android:paddingStart="10dp"
+            android:pointerIcon="alias"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_price"
+            app:layout_constraintTop_toTopOf="@id/tv_price" />
+
+        <Spinner
+            android:id="@+id/spinner_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_search_et"
+            android:backgroundTint="#6BDEDEDE"
+            app:layout_constraintBottom_toBottomOf="@id/search_view"
+            app:layout_constraintEnd_toEndOf="@id/search_view"
+            app:layout_constraintTop_toTopOf="@id/search_view" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Статус:"
+            android:textColor="@color/grey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_price" />
+
+        <Spinner
+            android:id="@+id/status_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_search_et"
+            android:backgroundTint="#6BDEDEDE"
+            app:layout_constraintBottom_toBottomOf="@id/tv_status"
+            app:layout_constraintStart_toEndOf="@id/tv_status"
+            app:layout_constraintTop_toTopOf="@id/tv_status" />
+
+        <TextView
+            android:id="@+id/item_status_order"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/bg_search_button"
+            android:backgroundTint="@color/yellow_transparent"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/item_status_txt"
+            android:textColor="@color/yellow"
+            android:textSize="8sp"
+            app:layout_constraintBottom_toBottomOf="@id/status_menu"
+            app:layout_constraintStart_toEndOf="@id/status_menu"
+            app:layout_constraintTop_toTopOf="@id/status_menu"
+            tools:ignore="SmallSp" />
+
+        <TextView
+            android:id="@+id/tv_entrusted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Поручено:"
+            android:textColor="@color/grey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_status" />
+
+        <ImageButton
+            android:id="@+id/item_add_order"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/bg_changes_order"
+            android:src="@drawable/ic_add_not_colored"
+            app:layout_constraintBottom_toBottomOf="@id/tv_entrusted"
+            app:layout_constraintStart_toEndOf="@id/tv_entrusted"
+            app:layout_constraintTop_toTopOf="@id/tv_entrusted" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_files"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_order_params"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Файлы:"
+        android:textColor="@color/blue"
+        android:textSize="24sp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:id="@+id/layout_files"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_files"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_cards_home"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/tv_pervios"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Исходный:"
+            android:textColor="@color/grey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/file"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/bg_search_button"
+            android:backgroundTint="#F4F4F4"
+            android:fontFamily="@font/poppins_bold"
+            android:paddingHorizontal="4dp"
+            android:text="ex_file01.docx"
+            android:textColor="#999999"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_pervios"
+            app:layout_constraintStart_toEndOf="@id/tv_pervios"
+            app:layout_constraintTop_toTopOf="@id/tv_pervios" />
+
+        <TextView
+            android:id="@+id/tv_translated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Переведённый:"
+            android:textColor="@color/grey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_pervios" />
+
+        <ImageButton
+            android:id="@+id/item_add_file"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/bg_changes_order"
+            android:src="@drawable/ic_add_not_colored"
+            app:layout_constraintBottom_toBottomOf="@id/tv_pervios"
+            app:layout_constraintStart_toEndOf="@id/file"
+            app:layout_constraintTop_toTopOf="@id/tv_pervios" />
+
+        <ImageButton
+            android:id="@+id/item_add_translated"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/bg_changes_order"
+            android:src="@drawable/ic_add_not_colored"
+            app:layout_constraintBottom_toBottomOf="@id/tv_translated"
+            app:layout_constraintStart_toEndOf="@id/tv_translated"
+            app:layout_constraintTop_toTopOf="@id/tv_translated" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tv_clients"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_files"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Клиент:"
+        android:textColor="@color/blue"
+        android:textSize="24sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_client"
+        android:layout_below="@id/tv_clients"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_cards_home"
+        android:elevation="4dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:background="@drawable/bg_layout_card">
+            <ImageView
+                android:id="@+id/add_icon_card"
+                android:layout_width="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="18dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_add_client"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+ Добавить \nКлиента"
+                android:textAlignment="center"
+                android:textColor="@color/grey"
+                android:fontFamily="@font/poppins_bold"
+                app:layout_constraintTop_toBottomOf="@id/add_icon_card"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="22dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
