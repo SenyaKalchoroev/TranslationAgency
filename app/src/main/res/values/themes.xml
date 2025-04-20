@@ -1,5 +1,5 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+<resources>
+
     <style name="Base.Theme.TranslationAgency" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/blue</item>
         <item name="android:statusBarColor">@color/blue</item>
@@ -7,4 +7,5 @@
     </style>
 
     <style name="Theme.TranslationAgency" parent="Base.Theme.TranslationAgency" />
+
 </resources>
