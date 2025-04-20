@@ -22,6 +22,7 @@ navArgs = "2.8.9"
 firebaseBom = "33.12.0"
 googleServices = "4.4.2"
 uiAndroid = "1.7.8"
+binding-version = "1.5.9"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -36,6 +37,9 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 #NavComponents
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navComponent" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navComponent" }
+#di
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltVersion" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltVersion" }
 #Retrofit
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
@@ -63,6 +67,8 @@ firebase-messaging-ktx = { group = "com.google.firebase", name = "firebase-messa
 # Аналитика
 firebase-analytics-ktx = { group = "com.google.firebase", name = "firebase-analytics-ktx"}
 androidx-ui-android = { group = "androidx.compose.ui", name = "ui-android", version.ref = "uiAndroid" }
+#BindingDelegate
+binding = {group="com.github.kirich1409",name="viewbindingpropertydelegate-full", version.ref="binding-version"}
 
 
 [plugins]

@@ -1,33 +1,49 @@
 package com.kwork.translationagency.presentation.ui.fragments.login
 
-import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.viewModels
 import com.kwork.translationagency.R
+import com.kwork.translationagency.core.base.BaseFragment
+import com.kwork.translationagency.core.utils.viewBinding
 import com.kwork.translationagency.databinding.FragmentLoginBinding
+import com.kwork.translationagency.presentation.viewmodel.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-class LoginFragment : Fragment() {
+@AndroidEntryPoint
+class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layout.fragment_login) {
 
-    private val binding by lazy {
-        FragmentLoginBinding.inflate(layoutInflater)
+    override val binding: FragmentLoginBinding by viewBinding(FragmentLoginBinding::bind)
+
+    override val viewModel: LoginViewModel by viewModels()
+
+    override fun init() {
+        binding.progressBar.visibility = View.GONE
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return binding.root
+    override fun launchObserver() {
+        viewModel.loginState.observeUIState(
+            loading = {
+            },
+            success = {
+                binding.progressBar.visibility = View.GONE
+                findNavController().navigate(R.id.action_loginFragment_to_homeScreen)
+            },
+            error = { message ->
+                binding.progressBar.visibility = View.GONE
+                Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+            }
+        )
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+    override fun constructorListeners() {
         binding.btnCircle.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_homeScreen)
+            binding.progressBar.visibility = View.VISIBLE
+            val loginOrEmail = binding.loginEt.text.toString().trim()
+            val password     = binding.passwordEt.text.toString()
+            viewModel.signIn(loginOrEmail, password)
         }
     }
-
 }
+

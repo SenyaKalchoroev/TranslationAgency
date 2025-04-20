@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.androidx.navigation.safeargs.kotlin)
     alias(libs.plugins.google.services)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hiltCompiler)
 }
 
 android {
@@ -60,6 +62,10 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    // Dagger Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
+
     // Navigation Components
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
@@ -91,6 +97,8 @@ dependencies {
     implementation(libs.firebase.messaging.ktx)
     implementation(libs.firebase.analytics.ktx)
     implementation(libs.firebase.storage.ktx)
+    //Delegate
+    implementation(libs.binding)
 
 
     // ChipNavigationBar
