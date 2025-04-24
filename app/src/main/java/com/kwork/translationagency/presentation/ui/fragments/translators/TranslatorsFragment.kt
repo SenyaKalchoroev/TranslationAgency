@@ -6,11 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import com.kwork.translationagency.R
-import com.kwork.translationagency.databinding.FragmentClientsBinding
 import com.kwork.translationagency.databinding.FragmentTranslatorsBinding
-import com.kwork.translationagency.domain.model.ClientModel
-import com.kwork.translationagency.presentation.ui.fragments.clients.adapter.ClientsAdapter
 
 class TranslatorsFragment : Fragment() {
 
@@ -18,45 +14,7 @@ class TranslatorsFragment : Fragment() {
     private var _binding: FragmentTranslatorsBinding    ? = null
     private val binding get() = _binding!!
 
-    private val localClients = listOf(
-        ClientModel(
-            name = "Иванова Т.",
-            nickname = "t.ivanova",
-            phone = "+7 123 456 7890",
-            avatarResId = R.drawable.img_human
-        ),
-        ClientModel(
-            name = "Марк И.",
-            nickname = "mark_i",
-            phone = "+7 987 654 3210",
-            avatarResId = R.drawable.img_human
-        ),
-        ClientModel(
-            name = "Лиза В.",
-            nickname = "lizav",
-            phone = "+7 926 000 1122",
-            avatarResId = R.drawable.img_human
-        ) ,
-        ClientModel(
-            name = "Иванова Т.",
-            nickname = "t.ivanova",
-            phone = "+7 123 456 7890",
-            avatarResId = R.drawable.img_human
-        ),
-        ClientModel(
-            name = "Марк И.",
-            nickname = "mark_i",
-            phone = "+7 987 654 3210",
-            avatarResId = R.drawable.img_human
-        ),
-        ClientModel(
-            name = "Лиза В.",
-            nickname = "lizav",
-            phone = "+7 926 000 1122",
-            avatarResId = R.drawable.img_human
-        )
 
-    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -69,7 +27,6 @@ class TranslatorsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.rvOrders.layoutManager = GridLayoutManager(context, 3)
-        binding.rvOrders.adapter = ClientsAdapter(localClients)
     }
 
     override fun onDestroyView() {

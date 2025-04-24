@@ -22,25 +22,6 @@ class SearchDialogFragment : BottomSheetDialogFragment() {
         FragmentSearchDialogBinding.inflate(layoutInflater)
     }
 
-    private val sampleOrders = listOf(
-        OrderModel(
-            id = 1,
-            userName = "Иванова Т.",
-            description = "Пер. с/на: EN - 15 000 р.",
-            price = "15 000 р.",
-            dateFrom = "12.03.2023",
-            dateTo = "20.03.2023"
-        ),
-        OrderModel(
-            id = 2,
-            userName = "Иванова Т.",
-            description = "Пер. с/на: FR - 10 000 р.",
-            price = "10 000 р.",
-            dateFrom = "13.03.2023",
-            dateTo = "21.03.2023"
-        )
-    )
-
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)
@@ -69,9 +50,5 @@ class SearchDialogFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val ordersAdapter = SearchAdapter(sampleOrders)
-
-        binding.rvOrders.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvOrders.adapter = ordersAdapter
     }
 }

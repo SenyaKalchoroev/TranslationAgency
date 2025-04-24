@@ -2,35 +2,38 @@ package com.kwork.translationagency.presentation.ui.fragments.clients.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.kwork.translationagency.core.utils.Extensions.loadImageURL
 import com.kwork.translationagency.databinding.ItemClientBinding
-import com.kwork.translationagency.domain.model.ClientModel
+import com.kwork.translationagency.presentation.model.clients.ClientsUi
 
-class ClientsAdapter(
-    private val clients: List<ClientModel>
-) : RecyclerView.Adapter<ClientsAdapter.ClientViewHolder>() {
+class ClientAdapter(
+    private val click: (ClientsUi) -> Unit
+) : ListAdapter<ClientsUi, ClientAdapter.Holder>(Diff()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClientViewHolder {
-        val binding = ItemClientBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ClientViewHolder(binding)
-    }
+    override fun onCreateViewHolder(p: ViewGroup, t: Int) = Holder(
+        ItemClientBinding.inflate(LayoutInflater.from(p.context), p, false)
+    )
 
-    override fun onBindViewHolder(holder: ClientViewHolder, position: Int) {
-        holder.bind(clients[position])
-    }
+    override fun onBindViewHolder(h: Holder, pos: Int) =
+        h.bind(getItem(pos))
 
-    override fun getItemCount(): Int = clients.size
+    inner class Holder(private val b: ItemClientBinding)
+        : RecyclerView.ViewHolder(b.root) {
 
-    inner class ClientViewHolder(private val binding: ItemClientBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(client: ClientModel) {
-            binding.itemUserImage.setImageResource(client.avatarResId)
-            binding.itemUserName.text = client.name
-            binding.itemUserLogin.text = client.nickname
-            binding.filterNew.text = client.phone
-
-            // binding.itemHomeBtn.setOnClickListener { /* Действие при клике */ }
-            // binding.itemChatBtn.setOnClickListener { /* Действие при клике */ }
-            // binding.itemSettingsBtn.setOnClickListener { /* Действие при клике */ }
+        fun bind(ui: ClientsUi) = with(b) {
+            itemUserName.text = ui.name
+            itemUserLogin.text = ui.nickname
+            itemUserImage.loadImageURL(ui.avatarUrl)
+            root.isSelected = ui.isChecked
+            root.setOnClickListener { click(ui) }
         }
     }
+    class Diff : DiffUtil.ItemCallback<ClientsUi>() {
+        override fun areItemsTheSame(o: ClientsUi, n: ClientsUi) = o.id == n.id
+        override fun areContentsTheSame(o: ClientsUi, n: ClientsUi) = o == n
+    }
 }
+

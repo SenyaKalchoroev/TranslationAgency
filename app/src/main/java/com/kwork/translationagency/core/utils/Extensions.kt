@@ -6,26 +6,35 @@ import android.content.Context
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.provider.OpenableColumns
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import com.kwork.translationagency.core.common.ConstantsApplication.APP_ACTIVITY
+import com.kwork.translationagency.core.common.UiState
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.launch
 import java.text.DecimalFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 object Extensions {
 
@@ -33,8 +42,11 @@ object Extensions {
         Toast.makeText(this.requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
-    fun ImageView.loadImageUri(uri: Uri) {
+    fun ImageView.  loadImageUri(uri: Uri) {
         Glide.with(this).load(uri).into(this)
+    }
+    fun ImageView.loadImageURL(url: String?) {
+        Glide.with(this).load(url).centerCrop().into(this)
     }
 
     inline fun <T> Fragment.observeData(
@@ -147,5 +159,50 @@ object Extensions {
         }
         startActivity(Intent.createChooser(intent, "Choose an email client:"))
     }
+    fun Context.showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+    }
+    fun NavController.safeNavigate(actionId: Int) {
+        val currentDest: NavDestination? = currentDestination
+        // мы проверяем: у текущей dest есть такой action?
+        if (currentDest?.getAction(actionId) != null) {
+            navigate(actionId)
+        }
+    }
+    inline var View.isVisible: Boolean
+        get() = visibility == View.VISIBLE
+        set(v) { visibility = if (v) View.VISIBLE else View.GONE }
+
+    fun View.onClick(block: () -> Unit) = setOnClickListener { block() }
+
+
+    fun Fragment.toast(msg: String) =
+        Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
+
+
+    inline fun <T> StateFlow<UiState<T>>.collectUi(
+        owner: LifecycleOwner,
+        crossinline onSuccess: (T) -> Unit = {},
+        crossinline onError:   (String) -> Unit = {},
+        crossinline onLoading: () -> Unit = {}
+    ) {
+        owner.lifecycleScope.launch {
+            this@collectUi
+                .flowWithLifecycle(owner.lifecycle)
+                .collect { state ->
+                    when (state) {
+                        is UiState.Loading -> onLoading()
+                        is UiState.Success -> onSuccess(state.data)
+                        is UiState.Error   -> onError(state.mes)
+                        else               -> Unit
+                    }
+                }
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private val fmt = DateTimeFormatter.ofPattern("dd.MM.yyyy")
+    fun plusDaysString(plusDays: Long) =
+        LocalDate.now().plusDays(plusDays).format(fmt)
 
 }
