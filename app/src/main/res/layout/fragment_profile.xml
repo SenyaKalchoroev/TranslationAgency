@@ -271,5 +271,14 @@
 
     </RelativeLayout>
 
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:background="#5A000000"
+        android:elevation="6dp"
+        android:visibility="gone"
+        android:padding="160dp"
+        android:id="@+id/progress_bar"/>
 
 </RelativeLayout>

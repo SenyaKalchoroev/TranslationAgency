@@ -25,7 +25,6 @@ class TranslatorAdapter(
     inner class ClientViewHolder(private val binding: ItemTranslatorBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(client: ClientModel) {
-            binding.itemUserImage.setImageResource(client.avatarResId)
             binding.itemUserName.text = client.name
             binding.itemUserLogin.text = client.nickname
             binding.filterNew.text = client.phone

@@ -20,5 +20,14 @@
     <style name="AppBottomSheet" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@android:color/transparent</item>
     </style>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar"/>
+
+    <style name="BottomSheetTheme" parent="AppTheme">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowEnterAnimation">@anim/bottom_sheet_enter</item>
+        <item name="android:windowExitAnimation">@anim/bottom_sheet_exit</item>
+    </style>
 
 </resources>

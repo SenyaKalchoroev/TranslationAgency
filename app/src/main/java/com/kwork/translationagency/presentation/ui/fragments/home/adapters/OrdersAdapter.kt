@@ -1,40 +1,49 @@
 package com.kwork.translationagency.presentation.ui.fragments.home.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.kwork.translationagency.R
 import com.kwork.translationagency.databinding.ItemOrdersBinding
-import com.kwork.translationagency.domain.model.OrderModel
+import com.kwork.translationagency.presentation.model.clients.OrderUi
 
-class OrdersAdapter(
-    private val orders: List<OrderModel>
-) : RecyclerView.Adapter<OrdersAdapter.OrdersViewHolder>() {
+class OrdersAdapter :
+    ListAdapter<OrderUi, OrdersAdapter.VH>(Diff()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrdersViewHolder {
-        val binding = ItemOrdersBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent,
-            false
-        )
-        return OrdersViewHolder(binding)
-    }
+    override fun onCreateViewHolder(p: ViewGroup, t: Int) = VH(
+        ItemOrdersBinding.inflate(LayoutInflater.from(p.context), p, false)
+    )
 
-    override fun onBindViewHolder(holder: OrdersViewHolder, position: Int) {
-        val order = orders[position]
-        holder.bind(order)
-    }
+    override fun onBindViewHolder(h: VH, i: Int) = h.bind(getItem(i))
 
-    override fun getItemCount(): Int = orders.size
+    inner class VH(private val b: ItemOrdersBinding) :
+        RecyclerView.ViewHolder(b.root) {
 
-    class OrdersViewHolder(private val binding: ItemOrdersBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+        fun bind(it: OrderUi) = with(b) {
+            itemUserNameTv.text = it.userName
+            itemNumberTv.text   = it.description
+            itemFirstDate.text  = it.dateFrom
+            itemSecondDate.text = it.dateTo
 
-        fun bind(order: OrderModel) {
-            binding.itemUserNameTv.text = order.userName
-            binding.itemNumberTv.text = order.description
-            binding.itemOrderPrice.text = order.price
-            binding.itemFirstDate.text = order.dateFrom
-            binding.itemSecondDate.text = order.dateTo
+            statusNew.visibility = if (it.isNew) View.VISIBLE else View.GONE
+
+            itemStatusOrder.text = it.orderStatus
+            val (bg, txt) = if (it.orderStatus == "готов")
+                R.color.green_transparent to R.color.green
+            else
+                R.color.yellow_transparent to R.color.yellow
+            itemStatusOrder.setBackgroundResource(bg)
+            itemStatusOrder.setTextColor(
+                ContextCompat.getColor(root.context, txt)
+            )
         }
+    }
+    class Diff : DiffUtil.ItemCallback<OrderUi>() {
+        override fun areItemsTheSame(a: OrderUi, b: OrderUi) = a.id == b.id
+        override fun areContentsTheSame(a: OrderUi, b: OrderUi) = a == b
     }
 }

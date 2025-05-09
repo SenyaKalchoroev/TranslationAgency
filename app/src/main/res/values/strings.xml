@@ -41,5 +41,6 @@
     <string name="filter_more_txt">Еще...</string>
     <string name="search_client_txt">Поиск по клиентам</string>
     <string name="client_txt">Клиенты</string>
+    <string name="error_login_txt">Не верные данные</string>
 
 </resources>

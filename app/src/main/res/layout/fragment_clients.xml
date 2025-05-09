@@ -66,13 +66,13 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/bg_search_et"
+            android:cursorVisible="false"
             android:drawableStart="@drawable/ic_search_grey"
+            android:focusable="false"
             android:fontFamily="@font/poppins_bold"
             android:hint="@string/search_client_txt"
-            android:paddingStart="10dp"
-            android:focusable="false"
-            android:cursorVisible="false"
             android:inputType="none"
+            android:paddingStart="10dp"
             android:pointerIcon="alias"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -175,22 +175,21 @@
             android:layout_height="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="18dp"
-            android:text="@string/filter_more_txt"
-            android:textSize="10sp"
             android:backgroundTint="@color/white"
-            app:strokeColor="#63999999"
-            app:strokeWidth="0.5dp"
-            android:paddingHorizontal="1dp"
-            android:textColor="@color/purple"
             android:fontFamily="@font/poppins_bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:paddingVertical="1dp"
             android:gravity="center"
+            android:paddingHorizontal="1dp"
+            android:paddingVertical="1dp"
+            android:text="@string/filter_more_txt"
+            android:textColor="@color/purple"
+            android:textSize="10sp"
             app:cornerRadius="30dp"
-            app:layout_constraintStart_toEndOf="@id/filter_wait"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/filter_wait"
             app:layout_constraintTop_toBottomOf="@id/search_view"
-            />
+            app:strokeColor="#63999999"
+            app:strokeWidth="0.5dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
@@ -217,5 +216,14 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         tools:itemCount="3"
         tools:listitem="@layout/item_client" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="50dp"
+        android:layout_centerInParent="true"
+        android:layout_height="50dp"
+        android:layout_alignTop="@id/rv_orders"
+        android:layout_alignBottom="@id/rv_orders"
+        />
 
 </RelativeLayout>

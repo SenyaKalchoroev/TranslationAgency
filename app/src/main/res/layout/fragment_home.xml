@@ -159,10 +159,10 @@
                 android:text="@string/new_task_txt"
                 android:textColor="@color/blue"
                 android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/add_task_icon"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/add_task_icon" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -211,13 +211,13 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="26dp"
             android:background="@drawable/bg_search_et"
+            android:cursorVisible="false"
             android:drawableStart="@drawable/ic_search_grey"
+            android:focusable="false"
             android:fontFamily="@font/poppins_bold"
             android:hint="@string/fast_search_txt"
-            android:paddingStart="10dp"
-            android:focusable="false"
-            android:cursorVisible="false"
             android:inputType="none"
+            android:paddingStart="10dp"
             android:pointerIcon="alias"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -258,6 +258,17 @@
             android:layout_alignParentEnd="true"
             android:layout_marginHorizontal="16dp"
             tools:listitem="@layout/item_orders" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/rv_orders"
+            android:layout_alignBottom="@id/rv_orders"
+            android:layout_centerInParent="true"
+            android:progressBackgroundTint="@color/blue"
+            android:progressTint="@color/blue"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/important_msg_tv"
