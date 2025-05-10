@@ -164,7 +164,6 @@ object Extensions {
     }
     fun NavController.safeNavigate(actionId: Int) {
         val currentDest: NavDestination? = currentDestination
-        // мы проверяем: у текущей dest есть такой action?
         if (currentDest?.getAction(actionId) != null) {
             navigate(actionId)
         }

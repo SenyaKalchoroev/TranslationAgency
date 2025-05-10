@@ -42,5 +42,6 @@
     <string name="search_client_txt">Поиск по клиентам</string>
     <string name="client_txt">Клиенты</string>
     <string name="error_login_txt">Не верные данные</string>
+    <string name="msg_txt">Добрый день! Мне нужен перевод технического документа с английского на русский. Вы этим занимаетесь?</string>
 
 </resources>

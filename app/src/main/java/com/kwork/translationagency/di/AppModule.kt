@@ -1,9 +1,9 @@
-// file: di/AppModule.kt
 package com.kwork.translationagency.di
 
 import android.content.Context
 import android.content.SharedPreferences
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module
 import dagger.Provides
@@ -15,6 +15,10 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+
+    @Provides @Singleton
+    fun provideFirebaseDatabase(): FirebaseDatabase =
+        FirebaseDatabase.getInstance()
 
     @Provides @Singleton
     fun provideFirebaseAuth(): FirebaseAuth =

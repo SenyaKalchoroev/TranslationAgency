@@ -64,6 +64,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/img_background_chat">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_chat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_above="@id/search_view"/>
+
+
         <EditText
             android:id="@+id/search_view"
             android:layout_width="match_parent"

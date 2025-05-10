@@ -37,6 +37,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, OrdersViewModel>(
         searchView.setOnClickListener {
             SearchDialogFragment().show(parentFragmentManager, "SearchDialog")
         }
+        newClientCard.setOnClickListener {
+            findNavController().navigate(R.id.chatFragment)
+        }
 
         rvOrders.layoutManager = LinearLayoutManager(requireContext())
         rvOrders.adapter = ordersAdapter
